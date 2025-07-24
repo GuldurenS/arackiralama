@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "73735196282",
+    "project_id": "arac-kiralama-ac17a",
+    "storage_bucket": "arac-kiralama-ac17a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73735196282:android:00e6d51ea81d80e599b5c3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_login_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi0jcslkyQ3swbznCVzRZmU05pIWjB-Zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
