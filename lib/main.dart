@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_login_demo/reset_password.dart';
 import 'firebase_options.dart';
 
 import 'login_screen.dart';
@@ -9,6 +10,7 @@ import 'pages/araclar_page.dart';
 import 'pages/musteriler_page.dart';
 import 'pages/sozlesmeler_page.dart';
 import 'pages/raporlar_page.dart';
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -31,15 +33,17 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       // Kullanıcı giriş yapmış mı kontrol ediyoruz
-      home: StreamBuilder<User?>(
+      home: Uri.base.queryParameters.containsKey('oobCode')
+          ? ResetPasswordPage(oobCode: Uri.base.queryParameters['oobCode']!)
+          : StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData) {
-            return const HomePage(); // Kullanıcı varsa home ekranı
+            return const HomePage();
           } else {
-            return const LoginScreen(); // Yoksa giriş ekranı
+            return const LoginScreen();
           }
         },
       ),
